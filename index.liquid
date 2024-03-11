@@ -3,16 +3,22 @@ layout: layout.liquid
 title: External Data
 ---
 
-<h1>External Data</h1>
+<h1 class="underline">External Data</h1>
 
 <div class="flex flex-col items-center justify-center bg-gray-100">
     <div x-data="{ UserName: '' }" x-init="$fetchjson('https://dummyjson.com/users/1', jsonItem='firstName').then(data => UserName = 'This is ' + data)">
-        <h2 class="text-3xl font-bold text-blue-500 mt-8 mb-4" x-text="UserName"></h2>
+        <h2 class="text-3xl font-bold underline text-blue-500 mt-8 mb-4" x-text="UserName"></h2>
     </div>
 
     <div class="flex justify-center items-center mt-4">
         <div x-data="{ UserImage: $fetchjson('https://dummyjson.com/users/1', jsonItem='image') }">
             <img class="rounded-full shadow-lg" alt="users" x-bind:src="UserImage" />
         </div>
+    </div>
+</div>
+
+<div class="flex flex-col items-center justify-center bg-gradient-to-b from-purple-800 to-indigo-800">
+    <div x-data="{ Quote: '' }" x-init="$fetchjson('https://dummyjson.com/quotes/1', jsonItem='quote').then(data => Quote = 'His quote of the day is: ' + data)">
+        <h2 class="text-3xl font-bold text-white-500 mt-8 mb-4" x-text="Quote"></h2>
     </div>
 </div>
